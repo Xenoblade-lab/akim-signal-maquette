@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SIGNAL — Front Office</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo-mark">S</div>
+        <div>
+          <strong>SIGNAL</strong>
+          <span>Front Office</span>
+        </div>
+      </div>
+
+      <div class="nav-label">Pilotage</div>
+      <button class="nav-item active" data-view="overview"><span class="dot"></span> Vue d’ensemble</button>
+      <button class="nav-item" data-view="platforms"><span class="dot"></span> Par plateforme</button>
+      <button class="nav-item" data-view="themes"><span class="dot"></span> Thématiques</button>
+      <button class="nav-item" data-view="alerts"><span class="dot"></span> Alertes</button>
+      <button class="nav-item" data-view="feed"><span class="dot"></span> Publications</button>
+
+      <div class="nav-label">Compte</div>
+      <button class="nav-item" data-view="about"><span class="dot"></span> À propos maquette</button>
+
+      <div class="sidebar-foot">
+        <a href="bo.html">→ Aller au Back Office</a>
+        <a href="index.html">← Accueil maquette</a>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <h1 id="page-title">Vue d’ensemble</h1>
+          <div class="sub">Personnalité suivie · Campagne demo · Kinshasa</div>
+        </div>
+        <div class="filters">
+          <label class="chip">Période
+            <select>
+              <option>7 jours</option>
+              <option selected>30 jours</option>
+              <option>90 jours</option>
+            </select>
+          </label>
+          <label class="chip">Plateforme
+            <select>
+              <option selected>Toutes</option>
+              <option>X / Twitter</option>
+              <option>Facebook</option>
+              <option>TikTok</option>
+            </select>
+          </label>
+          <label class="chip">Région
+            <select>
+              <option selected>Toutes</option>
+              <option>Kinshasa</option>
+              <option>Lubumbashi</option>
+              <option>Goma</option>
+            </select>
+          </label>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="mock-banner">
+          <span><strong>Maquette interactive</strong> — données fictives pour validation UX / produit</span>
+          <span class="badge warn">Sprint 0</span>
+        </div>
+
+        <!-- OVERVIEW -->
+        <section class="view active" id="view-overview">
+          <div class="metrics">
+            <article class="metric" style="--accent:#0f8f84">
+              <div class="label">Score de popularité</div>
+              <div class="value">72</div>
+              <div class="delta up">↑ +4,2 vs 7 j</div>
+            </article>
+            <article class="metric" style="--accent:#1f9d6c">
+              <div class="label">Mentions (30 j)</div>
+              <div class="value">18,4k</div>
+              <div class="delta up">↑ +12 %</div>
+            </article>
+            <article class="metric" style="--accent:#e09b2d">
+              <div class="label">Sentiment net</div>
+              <div class="value">+41</div>
+              <div class="delta flat">stable</div>
+            </article>
+            <article class="metric" style="--accent:#d6455d">
+              <div class="label">Alertes actives</div>
+              <div class="value">3</div>
+              <div class="delta down">2 critiques</div>
+            </article>
+          </div>
+
+          <div class="grid-2">
+            <div class="panel">
+              <div class="panel-h">
+                <h2>Évolution des mentions</h2>
+                <span class="hint">Volume quotidien · 30 jours</span>
+              </div>
+              <div class="chart" id="chart-mentions"></div>
+              <div class="chart-legend">
+                <span><i style="background:#0f8f84"></i> Mentions</span>
+                <span><i style="background:#d6455d"></i> Pics négatifs</span>
+              </div>
+            </div>
+            <div class="panel">
+              <div class="panel-h">
+                <h2>Répartition du sentiment</h2>
+                <span class="hint">Sur 18 420 contenus</span>
+              </div>
+              <div class="sentiment">
+                <div class="sent-row"><span>Positif</span><div class="sent-track"><div class="sent-fill pos"></div></div><strong>58 %</strong></div>
+                <div class="sent-row"><span>Neutre</span><div class="sent-track"><div class="sent-fill neu"></div></div><strong>24 %</strong></div>
+                <div class="sent-row"><span>Négatif</span><div class="sent-track"><div class="sent-fill neg"></div></div><strong>18 %</strong></div>
+              </div>
+              <div style="margin-top:22px">
+                <div class="panel-h" style="margin-bottom:8px"><h2 style="font-size:0.95rem">Sujets du moment</h2></div>
+                <div class="topics">
+                  <span class="tag">Emploi jeunes</span>
+                  <span class="tag hot">Sécurité urbaine</span>
+                  <span class="tag">Infrastructures</span>
+                  <span class="tag risk">Rumeurs réseaux</span>
+                  <span class="tag">Santé publique</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="panel-h">
+              <h2>Dernières publications marquantes</h2>
+              <button class="btn btn-ghost" data-goto="feed" style="padding:8px 12px;font-size:0.82rem">Voir tout</button>
+            </div>
+            <div class="feed">
+              <div class="feed-item">
+                <div class="avatar">MK</div>
+                <div>
+                  <div class="meta">X · il y a 24 min · Kinshasa</div>
+                  <div class="text">« Le discours d’hier a clairement marqué sur l’emploi des jeunes. On attend les actes. »</div>
+                </div>
+                <span class="badge pos">Positif</span>
+              </div>
+              <div class="feed-item">
+                <div class="avatar">JL</div>
+                <div>
+                  <div class="meta">Facebook · il y a 1 h · Lubumbashi</div>
+                  <div class="text">« Encore des promesses sur les routes. On verra si le planning tient. »</div>
+                </div>
+                <span class="badge neu">Neutre</span>
+              </div>
+              <div class="feed-item">
+                <div class="avatar">SR</div>
+                <div>
+                  <div class="meta">X · il y a 2 h · Viral</div>
+                  <div class="text">Thread critique sur la gestion d’une rumeur — engagement en forte hausse.</div>
+                </div>
+                <span class="badge neg">Négatif</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- PLATFORMS -->
+        <section class="view" id="view-platforms">
+          <div class="platform-row">
+            <div class="platform">
+              <h3>X / Twitter</h3>
+              <div class="stat"><span>Mentions</span><strong>9 820</strong></div>
+              <div class="stat"><span>Engagement</span><strong>4,8 %</strong></div>
+              <div class="stat"><span>Sentiment +</span><strong>54 %</strong></div>
+              <div class="spark" data-spark="8,14,10,18,22,16,25,20,28,19"></div>
+            </div>
+            <div class="platform">
+              <h3>Facebook</h3>
+              <div class="stat"><span>Mentions</span><strong>6 140</strong></div>
+              <div class="stat"><span>Partages</span><strong>2 310</strong></div>
+              <div class="stat"><span>Sentiment +</span><strong>61 %</strong></div>
+              <div class="spark" data-spark="5,9,12,11,15,14,18,16,17,21"></div>
+            </div>
+            <div class="platform">
+              <h3>TikTok</h3>
+              <div class="stat"><span>Mentions</span><strong>2 460</strong></div>
+              <div class="stat"><span>Vues est.</span><strong>1,2 M</strong></div>
+              <div class="stat"><span>Sentiment +</span><strong>49 %</strong></div>
+              <div class="spark" data-spark="3,4,8,6,12,20,18,24,22,30"></div>
+            </div>
+          </div>
+          <div class="panel" style="margin-top:14px">
+            <div class="panel-h">
+              <h2>Lecture stratégique</h2>
+            </div>
+            <p style="color:var(--neu);font-size:0.95rem;max-width:70ch">
+              X concentre le débat et les controverses. Facebook porte davantage le relais communautaire positif.
+              TikTok reste partiel en V1 (selon accès API) mais montre une viralité jeune à surveiller.
+            </p>
+          </div>
+        </section>
+
+        <!-- THEMES -->
+        <section class="view" id="view-themes">
+          <div class="grid-2">
+            <div class="panel">
+              <div class="panel-h"><h2>Sujets dominants</h2><span class="hint">Cliquables (maquette)</span></div>
+              <div class="topics" style="margin-bottom:18px">
+                <button class="tag" type="button">Emploi jeunes · 22 %</button>
+                <button class="tag hot" type="button">Sécurité urbaine · 18 %</button>
+                <button class="tag" type="button">Infrastructures · 15 %</button>
+                <button class="tag risk" type="button">Rumeurs · 11 %</button>
+                <button class="tag" type="button">Santé · 9 %</button>
+                <button class="tag" type="button">Éducation · 8 %</button>
+              </div>
+              <div class="chart" id="chart-themes"></div>
+            </div>
+            <div class="panel">
+              <div class="panel-h"><h2>Points de crispation</h2></div>
+              <div class="alert-list">
+                <div class="alert watch">
+                  <div class="alert-ico">!</div>
+                  <div>
+                    <strong>Sécurité urbaine</strong>
+                    <div class="meta" style="color:var(--neu);font-size:0.82rem;margin-top:4px">Hausse des mentions négatives le soir · 48 h</div>
+                  </div>
+                  <span class="badge warn">Watch</span>
+                </div>
+                <div class="alert critical">
+                  <div class="alert-ico">↑</div>
+                  <div>
+                    <strong>Rumeurs réseaux</strong>
+                    <div class="meta" style="color:var(--neu);font-size:0.82rem;margin-top:4px">Pic d’engagement +210 % vs moyenne</div>
+                  </div>
+                  <span class="badge neg">Critique</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ALERTS -->
+        <section class="view" id="view-alerts">
+          <div class="metrics" style="grid-template-columns:repeat(3,1fr)">
+            <article class="metric" style="--accent:#d6455d"><div class="label">Critiques</div><div class="value">2</div></article>
+            <article class="metric" style="--accent:#e09b2d"><div class="label">À surveiller</div><div class="value">1</div></article>
+            <article class="metric" style="--accent:#0f8f84"><div class="label">Résolues (7 j)</div><div class="value">5</div></article>
+          </div>
+          <div class="panel">
+            <div class="panel-h"><h2>File d’alertes</h2></div>
+            <div class="alert-list">
+              <div class="alert critical">
+                <div class="alert-ico">↑</div>
+                <div>
+                  <strong>Pic de mentions négatives — Rumeurs</strong>
+                  <div style="color:var(--neu);font-size:0.85rem;margin-top:4px">Détecté il y a 46 min · X · Seuil volume ×2,1</div>
+                </div>
+                <span class="badge neg">Critique</span>
+              </div>
+              <div class="alert critical">
+                <div class="alert-ico">⚡</div>
+                <div>
+                  <strong>Viralité soudaine d’un thread critique</strong>
+                  <div style="color:var(--neu);font-size:0.85rem;margin-top:4px">Il y a 2 h · X · Engagement anormal</div>
+                </div>
+                <span class="badge neg">Critique</span>
+              </div>
+              <div class="alert watch">
+                <div class="alert-ico">~</div>
+                <div>
+                  <strong>Sécurité urbaine — tonalité en baisse le soir</strong>
+                  <div style="color:var(--neu);font-size:0.85rem;margin-top:4px">Il y a 5 h · Multi-plateformes</div>
+                </div>
+                <span class="badge warn">Watch</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FEED -->
+        <section class="view" id="view-feed">
+          <div class="toolbar">
+            <input class="input" type="search" placeholder="Rechercher une publication…" />
+            <div class="pill-switch">
+              <button class="active" type="button">Tous</button>
+              <button type="button">Positif</button>
+              <button type="button">Négatif</button>
+            </div>
+            <button class="btn btn-ghost" type="button">Export Excel</button>
+          </div>
+          <div class="panel">
+            <div class="feed" id="full-feed"></div>
+          </div>
+        </section>
+
+        <!-- ABOUT -->
+        <section class="view" id="view-about">
+          <div class="panel">
+            <div class="panel-h"><h2>Objectif de cette maquette</h2></div>
+            <p style="max-width:65ch;color:var(--neu);margin-bottom:14px">
+              Valider avec M. Akim l’ergonomie du Front Office avant développement :
+              hiérarchie visuelle, filtres, vues métier, alertes et lisibilité décideur.
+            </p>
+            <div class="topics">
+              <span class="tag">Non technique</span>
+              <span class="tag">Lecture rapide</span>
+              <span class="tag hot">Mobile-friendly</span>
+              <span class="tag">Pack C · 3 mois</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <script src="assets/app.js"></script>
+</body>
+</html>

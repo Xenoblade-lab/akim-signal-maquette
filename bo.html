@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SIGNAL — Back Office</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="logo-mark">S</div>
+        <div>
+          <strong>SIGNAL</strong>
+          <span>Back Office</span>
+        </div>
+      </div>
+
+      <div class="nav-label">Administration</div>
+      <button class="nav-item active" data-view="sources"><span class="dot"></span> Sources de données</button>
+      <button class="nav-item" data-view="connectors"><span class="dot"></span> Connecteurs & API</button>
+      <button class="nav-item" data-view="users"><span class="dot"></span> Utilisateurs & rôles</button>
+      <button class="nav-item" data-view="monitor"><span class="dot"></span> Monitoring</button>
+      <button class="nav-item" data-view="retention"><span class="dot"></span> Rétention / audit</button>
+
+      <div class="sidebar-foot">
+        <a href="fo.html">→ Voir le Front Office</a>
+        <a href="index.html">← Accueil maquette</a>
+      </div>
+    </aside>
+
+    <div class="main">
+      <header class="topbar">
+        <div>
+          <h1 id="page-title">Sources de données</h1>
+          <div class="sub">Espace technique · Admin / data</div>
+        </div>
+        <div class="filters">
+          <button class="btn btn-teal" type="button">+ Ajouter une source</button>
+        </div>
+      </header>
+
+      <div class="content">
+        <div class="mock-banner">
+          <span><strong>Back Office maquette</strong> — dense, orienté efficacité (pas vitrine décideur)</span>
+          <span class="badge warn">Admin</span>
+        </div>
+
+        <section class="view active" id="view-sources">
+          <div class="toolbar">
+            <input class="input" type="search" placeholder="Filtrer mots-clés, comptes…" />
+            <div class="pill-switch">
+              <button class="active" type="button">Actives</button>
+              <button type="button">Toutes</button>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Type</th>
+                    <th>Valeur</th>
+                    <th>Plateforme</th>
+                    <th>Statut</th>
+                    <th>Vol. 24 h</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Hashtag</td>
+                    <td><strong>#EmploiJeunes</strong></td>
+                    <td>X</td>
+                    <td><span class="status ok">Actif</span></td>
+                    <td>1 240</td>
+                    <td><button class="btn btn-ghost" style="padding:6px 10px;font-size:0.78rem">Éditer</button></td>
+                  </tr>
+                  <tr>
+                    <td>Compte</td>
+                    <td><strong>@campagne_demo</strong></td>
+                    <td>X</td>
+                    <td><span class="status ok">Actif</span></td>
+                    <td>860</td>
+                    <td><button class="btn btn-ghost" style="padding:6px 10px;font-size:0.78rem">Éditer</button></td>
+                  </tr>
+                  <tr>
+                    <td>Mot-clé</td>
+                    <td><strong>sécurité Kinshasa</strong></td>
+                    <td>Facebook</td>
+                    <td><span class="status ok">Actif</span></td>
+                    <td>420</td>
+                    <td><button class="btn btn-ghost" style="padding:6px 10px;font-size:0.78rem">Éditer</button></td>
+                  </tr>
+                  <tr>
+                    <td>Mention</td>
+                    <td><strong>Personnalité A</strong></td>
+                    <td>Multi</td>
+                    <td><span class="status warn">Quota bas</span></td>
+                    <td>2 110</td>
+                    <td><button class="btn btn-ghost" style="padding:6px 10px;font-size:0.78rem">Éditer</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" id="view-connectors">
+          <div class="metrics" style="grid-template-columns:repeat(3,1fr)">
+            <article class="metric" style="--accent:#1f9d6c"><div class="label">X API</div><div class="value" style="font-size:1.3rem">Connecté</div><div class="delta up">78 % quota restant</div></article>
+            <article class="metric" style="--accent:#0f8f84"><div class="label">Meta Graph</div><div class="value" style="font-size:1.3rem">Connecté</div><div class="delta flat">Permissions page OK</div></article>
+            <article class="metric" style="--accent:#d6455d"><div class="label">TikTok</div><div class="value" style="font-size:1.3rem">En attente</div><div class="delta down">Accès à confirmer</div></article>
+          </div>
+          <div class="panel">
+            <div class="panel-h"><h2>Clés & connecteurs</h2><span class="hint">Ne jamais exposer les secrets en clair en production</span></div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Connecteur</th><th>Environnement</th><th>Dernier sync</th><th>Statut</th><th></th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>X / Twitter API</td>
+                    <td>Production</td>
+                    <td>il y a 3 min</td>
+                    <td><span class="status ok">OK</span></td>
+                    <td><button class="btn btn-ghost" style="padding:6px 10px;font-size:0.78rem">Configurer</button></td>
+                  </tr>
+                  <tr>
+                    <td>Meta Graph API</td>
+                    <td>Production</td>
+                    <td>il y a 8 min</td>
+                    <td><span class="status ok">OK</span></td>
+                    <td><button class="btn btn-ghost" style="padding:6px 10px;font-size:0.78rem">Configurer</button></td>
+                  </tr>
+                  <tr>
+                    <td>TikTok API</td>
+                    <td>—</td>
+                    <td>—</td>
+                    <td><span class="status err">Inactif</span></td>
+                    <td><button class="btn btn-teal" style="padding:6px 10px;font-size:0.78rem">Brancher</button></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" id="view-users">
+          <div class="toolbar">
+            <button class="btn btn-primary" type="button">+ Nouvel utilisateur</button>
+          </div>
+          <div class="panel">
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Nom</th><th>Email</th><th>Rôle</th><th>Accès FO</th><th>Accès BO</th><th>Statut</th></tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>M. Akim</strong></td>
+                    <td>akim@demo.cd</td>
+                    <td>Décideur</td>
+                    <td>Complet</td>
+                    <td>—</td>
+                    <td><span class="status ok">Actif</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Analyste 1</strong></td>
+                    <td>analyste@demo.cd</td>
+                    <td>Analyste</td>
+                    <td>Complet</td>
+                    <td>Sources</td>
+                    <td><span class="status ok">Actif</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Bradley</strong></td>
+                    <td>admin@demo.cd</td>
+                    <td>Administrateur</td>
+                    <td>Complet</td>
+                    <td>Complet</td>
+                    <td><span class="status ok">Actif</span></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Com Campagne</strong></td>
+                    <td>com@demo.cd</td>
+                    <td>Communication</td>
+                    <td>Notoriété seule</td>
+                    <td>—</td>
+                    <td><span class="status ok">Actif</span></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" id="view-monitor">
+          <div class="metrics">
+            <article class="metric" style="--accent:#0f8f84"><div class="label">Ingest 24 h</div><div class="value">4 820</div><div class="delta up">pipeline OK</div></article>
+            <article class="metric" style="--accent:#e09b2d"><div class="label">Erreurs 24 h</div><div class="value">12</div><div class="delta flat">rate limit soft</div></article>
+            <article class="metric" style="--accent:#1f9d6c"><div class="label">Latence médiane</div><div class="value">6m</div><div class="delta up">pub → dash</div></article>
+            <article class="metric" style="--accent:#d6455d"><div class="label">Jobs en échec</div><div class="value">1</div><div class="delta down">retry en cours</div></article>
+          </div>
+          <div class="panel">
+            <div class="panel-h"><h2>Logs récents</h2></div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Heure</th><th>Niveau</th><th>Message</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>04:12</td><td><span class="status ok">INFO</span></td><td>Sync X terminée — 420 items</td></tr>
+                  <tr><td>04:08</td><td><span class="status warn">WARN</span></td><td>Approche rate limit Meta — backoff 30s</td></tr>
+                  <tr><td>03:55</td><td><span class="status ok">INFO</span></td><td>Batch NLP sentiment — 380 scorés</td></tr>
+                  <tr><td>03:41</td><td><span class="status err">ERROR</span></td><td>Job tiktok.fetch timeout — retry #2</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" id="view-retention">
+          <div class="grid-2">
+            <div class="panel">
+              <div class="panel-h"><h2>Rétention</h2></div>
+              <div class="stat" style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)"><span>Données brutes</span><strong>90 jours</strong></div>
+              <div class="stat" style="display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)"><span>Agrégats dashboard</span><strong>18 mois</strong></div>
+              <div class="stat" style="display:flex;justify-content:space-between;padding:10px 0"><span>Logs techniques</span><strong>30 jours</strong></div>
+              <button class="btn btn-ghost" style="margin-top:16px" type="button">Modifier les règles</button>
+            </div>
+            <div class="panel">
+              <div class="panel-h"><h2>Journal d’audit</h2></div>
+              <div class="feed">
+                <div class="feed-item">
+                  <div class="avatar">B</div>
+                  <div>
+                    <div class="meta">il y a 2 h</div>
+                    <div class="text">Bradley a ajouté la source #EmploiJeunes</div>
+                  </div>
+                </div>
+                <div class="feed-item">
+                  <div class="avatar">A</div>
+                  <div>
+                    <div class="meta">hier</div>
+                    <div class="text">M. Akim a exporté le rapport Excel 30 j</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </div>
+  <script src="assets/app.js"></script>
+</body>
+</html>
