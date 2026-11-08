@@ -2,7 +2,15 @@
 
 Maquette HTML interactive (style produit / Figma live) pour validation UX.
 
-## Ouvrir
+## En ligne (GitHub Pages)
+
+**URL :** https://xenoblade-lab.github.io/akim-signal-maquette/
+
+> Le dépôt projet est **privé** (Pages non dispo sur ce plan).  
+> La maquette est publiée via le dépôt public dédié :  
+> https://github.com/Xenoblade-lab/akim-signal-maquette
+
+## Ouvrir en local
 
 1. Double-clic sur `index.html`, **ou**
 2. Via Laragon : `http://akim-outil-de-collecte-de-donnees.test/maquette/`  

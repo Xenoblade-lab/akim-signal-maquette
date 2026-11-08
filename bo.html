@@ -20,6 +20,7 @@
       <div class="nav-label">Administration</div>
       <button class="nav-item active" data-view="sources"><span class="dot"></span> Sources de données</button>
       <button class="nav-item" data-view="connectors"><span class="dot"></span> Connecteurs & API</button>
+      <button class="nav-item" data-view="thresholds"><span class="dot"></span> Seuils d’alerte</button>
       <button class="nav-item" data-view="users"><span class="dot"></span> Utilisateurs & rôles</button>
       <button class="nav-item" data-view="monitor"><span class="dot"></span> Monitoring</button>
       <button class="nav-item" data-view="retention"><span class="dot"></span> Rétention / audit</button>
@@ -36,8 +37,8 @@
           <h1 id="page-title">Sources de données</h1>
           <div class="sub">Espace technique · Admin / data</div>
         </div>
-        <div class="filters">
-          <button class="btn btn-teal" type="button">+ Ajouter une source</button>
+        <div class="filters" id="topbar-actions">
+          <button class="btn btn-teal" type="button" id="btn-add-source">+ Ajouter une source</button>
         </div>
       </header>
 
@@ -103,6 +104,49 @@
                   </tr>
                 </tbody>
               </table>
+            </div>
+          </div>
+        </section>
+
+        <section class="view" id="view-thresholds">
+          <div class="panel">
+            <div class="panel-h">
+              <h2>Paramétrage des alertes</h2>
+              <span class="hint">Seuils simples — maquette interactive</span>
+            </div>
+            <div class="threshold-row">
+              <div>
+                <strong>Pic de volume</strong>
+                <span>Déclenche une alerte si le volume dépasse × la moyenne 7 j</span>
+              </div>
+              <div>
+                <input type="range" min="1.2" max="4" step="0.1" value="2.0" data-threshold="volume" />
+                <div class="threshold-value" data-out="volume">× 2,0</div>
+              </div>
+            </div>
+            <div class="threshold-row">
+              <div>
+                <strong>Pic négatif</strong>
+                <span>Part de mentions négatives au-delà de ce % sur 2 h</span>
+              </div>
+              <div>
+                <input type="range" min="20" max="80" step="1" value="45" data-threshold="negatif" />
+                <div class="threshold-value" data-out="negatif">45 %</div>
+              </div>
+            </div>
+            <div class="threshold-row">
+              <div>
+                <strong>Viralité</strong>
+                <span>Engagement anormal vs médiane du sujet</span>
+              </div>
+              <div>
+                <input type="range" min="150" max="500" step="10" value="210" data-threshold="viral" />
+                <div class="threshold-value" data-out="viral">+210 %</div>
+              </div>
+            </div>
+            <div class="modal-actions" style="justify-content:flex-start;padding-top:8px">
+              <button class="btn btn-teal" type="button" id="btn-save-thresholds">Enregistrer les seuils</button>
+              <button class="btn btn-ghost" type="button" id="btn-reset-thresholds">Réinitialiser</button>
             </div>
           </div>
         </section>
@@ -255,6 +299,46 @@
       </div>
     </div>
   </div>
+  <div class="modal-backdrop" id="modal-source" aria-hidden="true">
+    <div class="modal" role="dialog" aria-labelledby="modal-source-title">
+      <h3 id="modal-source-title">Ajouter une source</h3>
+      <p class="modal-sub">Paramétrer un mot-clé, hashtag, compte ou mention à surveiller.</p>
+      <form class="form-grid" id="form-add-source">
+        <div class="field">
+          <label for="source-type">Type</label>
+          <select id="source-type" required>
+            <option value="hashtag">Hashtag</option>
+            <option value="keyword">Mot-clé</option>
+            <option value="account">Compte</option>
+            <option value="mention">Mention</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="source-value">Valeur</label>
+          <input id="source-value" type="text" placeholder="#EmploiJeunes ou @compte…" required />
+        </div>
+        <div class="field">
+          <label for="source-platform">Plateforme</label>
+          <select id="source-platform" required>
+            <option>X / Twitter</option>
+            <option>Facebook</option>
+            <option>TikTok</option>
+            <option>Multi</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="source-note">Note (optionnel)</label>
+          <textarea id="source-note" rows="2" placeholder="Contexte campagne…"></textarea>
+        </div>
+        <div class="modal-actions">
+          <button class="btn btn-ghost" type="button" data-close-modal>Annuler</button>
+          <button class="btn btn-teal" type="submit">Enregistrer</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
   <script src="assets/app.js"></script>
 </body>
 </html>

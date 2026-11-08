@@ -63,6 +63,8 @@
               <option>Goma</option>
             </select>
           </label>
+          <button class="btn btn-ghost" type="button" data-export="excel" style="padding:8px 12px;font-size:0.82rem">Excel</button>
+          <button class="btn btn-teal" type="button" data-export="pdf" style="padding:8px 12px;font-size:0.82rem">PDF</button>
         </div>
       </header>
 
@@ -206,14 +208,14 @@
         <section class="view" id="view-themes">
           <div class="grid-2">
             <div class="panel">
-              <div class="panel-h"><h2>Sujets dominants</h2><span class="hint">Cliquables (maquette)</span></div>
-              <div class="topics" style="margin-bottom:18px">
-                <button class="tag" type="button">Emploi jeunes · 22 %</button>
-                <button class="tag hot" type="button">Sécurité urbaine · 18 %</button>
-                <button class="tag" type="button">Infrastructures · 15 %</button>
-                <button class="tag risk" type="button">Rumeurs · 11 %</button>
-                <button class="tag" type="button">Santé · 9 %</button>
-                <button class="tag" type="button">Éducation · 8 %</button>
+              <div class="panel-h"><h2>Sujets dominants</h2><span class="hint">Cliquez un sujet pour voir les publications</span></div>
+              <div class="topics" id="topic-tags" style="margin-bottom:18px">
+                <button class="tag" type="button" data-topic="emploi">Emploi jeunes · 22 %</button>
+                <button class="tag hot" type="button" data-topic="securite">Sécurité urbaine · 18 %</button>
+                <button class="tag" type="button" data-topic="infra">Infrastructures · 15 %</button>
+                <button class="tag risk" type="button" data-topic="rumeurs">Rumeurs · 11 %</button>
+                <button class="tag" type="button" data-topic="sante">Santé · 9 %</button>
+                <button class="tag" type="button" data-topic="education">Éducation · 8 %</button>
               </div>
               <div class="chart" id="chart-themes"></div>
             </div>
@@ -237,6 +239,16 @@
                   <span class="badge neg">Critique</span>
                 </div>
               </div>
+            </div>
+          </div>
+
+          <div class="topic-detail" id="topic-detail">
+            <div class="panel">
+              <div class="panel-h">
+                <h2 id="topic-detail-title">Publications liées</h2>
+                <button class="btn btn-ghost" type="button" id="topic-detail-close" style="padding:8px 12px;font-size:0.82rem">Fermer</button>
+              </div>
+              <div class="feed" id="topic-feed"></div>
             </div>
           </div>
         </section>
@@ -288,7 +300,8 @@
               <button type="button">Positif</button>
               <button type="button">Négatif</button>
             </div>
-            <button class="btn btn-ghost" type="button">Export Excel</button>
+            <button class="btn btn-ghost" type="button" data-export="excel">Export Excel</button>
+            <button class="btn btn-teal" type="button" data-export="pdf">Export PDF</button>
           </div>
           <div class="panel">
             <div class="feed" id="full-feed"></div>
@@ -314,6 +327,7 @@
       </div>
     </div>
   </div>
+  <div class="toast" id="toast" role="status"></div>
   <script src="assets/app.js"></script>
 </body>
 </html>
